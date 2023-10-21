@@ -40,6 +40,17 @@ export default function About() {
      navigator.clipboard.writeText(upper.value);
 
      }
+    // remove extra spaces
+     const handleExtraSpaces = () => {
+        let newText = upper.split(/[ ]+/);
+        setupper(newText.join(" "));
+    }
+   //  clear text
+    const handleClearClick = ()=>{ 
+        let newText = '';
+        setupper(newText);
+    }
+
 
     
     const toggleStyle =() =>{
@@ -97,8 +108,8 @@ export default function About() {
       <button style = {state} onClick={upperCase}>Convert To UpperCase</button>
       <button style = {state} onClick={lowerCase}>Convert To LowerCase</button>
       <button style = {state} onClick={copyCase} >Copy Text</button>
-      <button style = {state}>Clear Text</button>
-      <button style = {state}>Remove Space</button>
+      <button style = {state} onClick={handleClearClick}>Clear Text</button>
+      <button style = {state} onClick={handleExtraSpaces}>Remove Space</button>
     </div>
 
     <div className='summery'>
